@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ishop</title>
+        <script src="https://unpkg.com/react@15/dist/react.js"></script> 
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> 
+        <script src="ishop.js"></script>
+        <link rel="stylesheet" type="text/css" href="ishop.css" />
+    </head>
+    <body>
+        <div id="container"></div> 
+
+        <script>
+            var shopName='Название магазина';
+            var tableHeader = ['Название', 'Цена', 'Фото', 'Остаток'];
+            var itemsArr=[ 
+              {code: 1, itemName: 'элемент 1', itemPrice: 23, itemPhoto: 'https://pbs.twimg.com/media/Eaz6iz-UEAIWvLH.jpg', count: 56},
+              {code: 2, itemName: 'элемент 2', itemPrice: 33, itemPhoto: 'https://pbs.twimg.com/media/Eaz6iz-UEAIWvLH.jpg', count: 6},
+              {code: 3, itemName: 'элемент 3', itemPrice: 40, itemPhoto: 'https://pbs.twimg.com/media/Eaz6iz-UEAIWvLH.jpg', count: 36},
+              {code: 4, itemName: 'элемент 4', itemPrice: 15, itemPhoto: 'https://pbs.twimg.com/media/Eaz6iz-UEAIWvLH.jpg', count: 51},
+              {code: 5, itemName: 'элемент 5', itemPrice: 20, itemPhoto: 'https://pbs.twimg.com/media/Eaz6iz-UEAIWvLH.jpg', count: 1},
+            ];
+        
+            ReactDOM.render(
+              React.createElement(ishop,
+                {shopName:shopName, tableHeader: tableHeader, items:itemsArr}), 
+              document.getElementById('container') 
+            );
+          </script>
+    </body>
+</html>
