@@ -10,8 +10,12 @@ var filter = React.createClass({
     
     example: function() { 
         console.log('!!! выведено в функции example'); 
-        // this.setState( {a: 9} ); // not a function
-      } (),
+        // this.setState({a: 8}); // not a function
+        window.onload = () => this.setState({a: 8})
+        // this.setState({a: this.state.a+1})
+        // console.log(this.state.a); // this.state is undefined
+        // console.log(this);
+      },
 
       render: function() {
         var itemsCode = [];
@@ -49,6 +53,7 @@ var filter = React.createClass({
             React.DOM.div({className:'shopNameHeader'}, this.props.shopName),
             React.DOM.div({className:'singleItem singleHeader'}, headers),
             React.DOM.div({className:'items'}, itemsCode),
+            // React.DOM.div({className:'items'}, ),
             // this.setState( {a: 8} ) рекурсия
         );
     },
