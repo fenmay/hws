@@ -1,17 +1,25 @@
-var ishop = React.createClass({
+console.log('filter');
 
-    displayName: 'ishop',
+var filter = React.createClass({
 
-    propTypes: {
-        itemName: React.PropTypes.string,
-        itemPrice: React.PropTypes.string,
-        count: React.PropTypes.string,
-        itemPhoto: React.PropTypes.string,
-        key: React.PropTypes.number,
+    displayName: 'filter',
+
+    getInitialState: function () {
+      return { a: 1 };
     },
-  
-    render: function() {
+    
+    example: function() { 
+        console.log('!!! выведено в функции example'); 
+        // this.setState( {a: 9} ); // not a function
+      } (),
+
+      render: function() {
         var itemsCode = [];
+
+        console.log(this.state.a + ' выведено в рендере'); // выводит 1
+
+        // this.setState( {a: 8} ); рекурсия
+        // console.log(this.state.a); выведет 1
 
         for (var i = 0; i < this.props.items.length; i++ ) {
             var singleItem = this.props.items[i];
@@ -31,12 +39,18 @@ var ishop = React.createClass({
         for (var i = 0; i < tableHeader.length; i++) {
             var singleHeader = React.DOM.span({className:'column'}, tableHeader[i].headerItem);
             headers.push(singleHeader);
+            // this.setState( {a: 8} ); рекурсия
+            // console.log(this.state.a) выведет 1
         }
+        // this.setState( {a: 8} ) рекурсия
+
 
         return React.DOM.div({className:'ishop'}, 
             React.DOM.div({className:'shopNameHeader'}, this.props.shopName),
             React.DOM.div({className:'singleItem singleHeader'}, headers),
-            React.DOM.div({className:'items'}, itemsCode)
+            React.DOM.div({className:'items'}, itemsCode),
+            // this.setState( {a: 8} ) рекурсия
         );
     },
-});
+  
+  })
